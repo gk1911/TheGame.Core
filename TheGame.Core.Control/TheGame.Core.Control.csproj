@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Users\ph\Documents\UnityProjects\TheGame.Unity\Assets\Libraries\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TheGame.Core.Model\TheGame.Core.Model.csproj" />
+    <ProjectReference Include="..\TheGame.Core.Persistence\TheGame.Core.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
