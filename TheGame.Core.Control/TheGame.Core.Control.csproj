@@ -8,6 +8,10 @@
     <OutputPath>C:\Users\ph\Documents\UnityProjects\TheGame.Unity\Assets\Libraries\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\TheGame.Core.Model\TheGame.Core.Model.csproj" />
     <ProjectReference Include="..\TheGame.Core.Persistence\TheGame.Core.Persistence.csproj" />
