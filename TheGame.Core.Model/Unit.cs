@@ -6,7 +6,6 @@ namespace gk1911.TheGame.Core.Model
 	public abstract class Unit
 	{
 		public static event Action<Unit> TargetChanged;
-		public static event Action<Unit> HpChanged;
 
 		protected Unit(string name, float maxHp)
 		{
@@ -47,7 +46,6 @@ namespace gk1911.TheGame.Core.Model
 			set {
 				if (value < 1) throw new ArgumentException($"{nameof(MaxHp)} can't be less than 1");
 				_maxHp = value;
-				HpChanged?.Invoke(this);
 			}
 		}
 
@@ -59,7 +57,6 @@ namespace gk1911.TheGame.Core.Model
 				if (value < 0) throw new ArgumentException($"{nameof(Hp)} can't be less than 0");
 				if (value > MaxHp) throw new ArgumentException($"{nameof(Hp)} can't be higher than {nameof(MaxHp)}");
 				_hp = value;
-				HpChanged?.Invoke(this);
 			}
 		}
 

@@ -10,6 +10,7 @@ namespace gk1911.TheGame.Core.Control
 		public event Action<Map> MapSpawned;
 		public event Action<Unit> UnitSpawned;
 		public event Action<Unit> UnitSelected;
+		public event Action<Effect, Unit> EffectActivated;
 
 		private Map _map;
 		public Map Map {
@@ -53,11 +54,12 @@ namespace gk1911.TheGame.Core.Control
 		/// Activate the <see cref="Effect"/> of the <see cref="SelectedUnit"/> at position <paramref name="index"/>.
 		/// </summary>
 		/// <param name="index"></param>
-		public void ActivateEffect(int index) => ActivateEffect(SelectedUnit.Abilities[index], SelectedUnit, SelectedUnit.Target);
+		public void ActivateEffect(int index) => ActivateEffect(SelectedUnit.Abilities[index], SelectedUnit);
 
-		private void ActivateEffect(Effect effect, Unit origin, Unit target)
+		private void ActivateEffect(Effect effect, Unit unit)
 		{
-			target.Hp -= effect.Damage;
+			unit.Target.Hp -= effect.Damage;
+			EffectActivated?.Invoke(effect, unit);
 		}
 
 		#region public queries
@@ -91,6 +93,5 @@ namespace gk1911.TheGame.Core.Control
 			UnitsByHex.Add(hex, unit);
 			UnitSpawned?.Invoke(unit);
 		}
-
 	}
 }
